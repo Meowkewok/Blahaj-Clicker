@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blahaj Clicker</title>
+</head>
+<body>
+  <script>
+    var clicks = 0
+const blahaj = document.createElement('button');
+document.body.appendChild(blahaj);
+const blahajimg = document.createElement('img');
+    blahajimg.src = "blahajy.png";
+    blahajimg.style.width = "100px";
+    blahajimg.style.height = "100px";
+    blahajimg.style.marginRight = "10px";
+    blahaj.style.fontSize = "";
+    blahaj.appendChild(blahajimg)
+blahaj.addEventListener('click', () => {
+    clicks = clicks + 1
+    display.textContent = 'Blahaj hugs given: ' + clicks
+});
+
+const winplay = document.createElement('output');
+winplay.style.display = 'block';
+winplay.style.fontSize = '30px';
+
+const fish = document.createElement('button');
+var fishnum = 0;
+var fishplay = document.createElement('output');
+var fishcost = 2
+fishplay.style.display = 'block';
+fishplay.style.marginTop = '20px';
+fish.textContent = 'Buy a Fish (2)';
+document.body.appendChild(fish);
+fish.addEventListener('click', () => {
+    if (clicks >= fishcost) {
+        clicks -= fishcost;
+        fishcost *= 3;
+        fish.textContent = 'Buy a Fish (' + fishcost + ')';
+        fishnum = fishnum + 1;
+        fishplay.textContent = 'Fishes: ' + fishnum;
+        display.textContent = 'Blahaj hugs given: ' + clicks
+    }
+});
+var fishmult = 1;
+
+const jelly = document.createElement('button');
+var jellynum = 0;
+var jellyplay = document.createElement('output');
+var jellycost = 8
+jellyplay.style.display = 'block';
+jellyplay.style.marginTop = '20px';
+jelly.textContent = 'Buy a Jelly (8)';
+document.body.appendChild(jelly);
+jelly.addEventListener('click', () => {
+    if (clicks >= jellycost) {
+        clicks -= jellycost;
+        jellycost *= 3;
+        jelly.textContent = 'Buy a Jelly (' + jellycost + ')';
+        jellynum = jellynum + 1;
+        jellyplay.textContent = 'Jellies: ' + jellynum;
+        display.textContent = 'Blahaj hugs given: ' + clicks
+    }
+});
+var jellymult = 10;
+
+const seal = document.createElement('button');
+var sealnum = 0;
+var sealplay = document.createElement('output');
+var sealcost = 60;
+sealplay.style.display = 'block';
+sealplay.style.marginTop = '20px';
+seal.textContent = 'Buy a Seal (60)';
+document.body.appendChild(seal);
+seal.addEventListener('click', () => {
+    if (clicks >= sealcost) {
+        clicks -= sealcost;
+        sealcost *= 3;
+        seal.textContent = 'Buy a Seal (' + sealcost + ')';
+        sealnum = sealnum + 1;
+        sealplay.textContent = 'Seals: ' + sealnum;
+        display.textContent = 'Blahaj hugs given: ' + clicks
+    }
+});
+var sealmult = 50;
+
+const dolphin = document.createElement('button');
+var dolphinnum = 0;
+var dolphinplay = document.createElement('output');
+var dolphincost = 1800;
+dolphinplay.style.display = 'block';
+dolphinplay.style.marginTop = '20px';
+dolphin.textContent = 'Buy a Dolphin (1800)';
+document.body.appendChild(dolphin);
+dolphin.addEventListener('click', () => {
+    if (clicks >= dolphincost) {
+        clicks -= dolphincost;
+        dolphincost *= 3;
+        dolphin.textContent = 'Buy a Dolphin (' + dolphincost + ')';
+        dolphinnum = dolphinnum + 1;
+        dolphinplay.textContent = 'Dolphins: ' + dolphinnum;
+        display.textContent = 'Blahaj hugs given: ' + clicks
+    }
+});
+var dolphinmult = 1000;
+
+const whale = document.createElement('button');
+var whalenum = 0;
+var whaleplay = document.createElement('output');
+var whalecost = 10000;
+whaleplay.style.display = 'block';
+whaleplay.style.marginTop = '20px';
+whale.textContent = 'Buy a Whale (10000)';
+document.body.appendChild(whale);
+whale.addEventListener('click', () => {
+    if (clicks >= whalecost) {
+        clicks -= whalecost;
+        whalecost *= 3;
+        whale.textContent = 'Buy a Whale (' + whalecost + ')';
+        whalenum += 1;
+        whaleplay.textContent = 'Whales: ' + whalenum;
+        display.textContent = 'Blahaj hugs given: ' + clicks
+    }
+});
+var whalemult = 50000;
+
+setInterval(function adding() {
+    clicks += fishmult * fishnum;
+    clicks += jellymult * jellynum;
+    clicks += sealmult * sealnum;
+    clicks += dolphinmult * dolphinnum;
+    clicks += whalemult * whalenum;
+    display.textContent = 'Blahaj hugs given: ' + clicks;
+    checkWin()
+}, 1000);
+
+var display = document.createElement('output');
+document.body.appendChild(display);
+document.body.appendChild(fishplay);
+document.body.appendChild(jellyplay);
+document.body.appendChild(sealplay)
+document.body.appendChild(dolphinplay);
+document.body.appendChild(whaleplay);
+document.body.appendChild(winplay);
+display.style.display = 'block';
+display.style.marginTop = '20px';
+
+function checkWin() {
+    if (clicks >= 1000000000) {
+        winplay.textContent = 'YAY! YOU WON!';
+    }
+}
+  </script>
+</body>
+</html>
